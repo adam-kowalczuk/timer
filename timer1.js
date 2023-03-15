@@ -7,16 +7,18 @@ const timer1 = function(input) {
   }
   const timeDelay = input.filter((item) => {
     return !isNaN(Number(item)) && item >= 0;
-  });
+  })
   if (!timeDelay.length) {
     console.log("Input provided is not a number or is less than zero");
+    return;
   }
   for (let i = 0; i < timeDelay.length; i++) {
-    const timer = Number(timeDelay[i]) * 1000;
+    const delay = Number(timeDelay[i]) * 1000;
     setTimeout(() => {
       process.stdout.write('\x07');
-      console.log(timer);
-    }, timer);
+      console.log("delay:", `${delay / 1000} seconds`);
+    }, delay);
   }
 };
 
+timer1(input); 
